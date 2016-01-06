@@ -7,4 +7,6 @@
     <string name="title_activity_display_message">DisplayMessageActivity</string>
     <string name="title_activity_list">ListActivity</string>
     <string name="button_show">Show</string>
+    <string name="button_users">Users</string>
+    <string name="title_activity_list_user">ListUserActivity</string>
 </resources>

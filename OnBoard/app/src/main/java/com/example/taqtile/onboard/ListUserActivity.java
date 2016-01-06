@@ -9,18 +9,18 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class ListActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.Map;
 
-    private String[] monthsArray = { "JAN", "FEB", "MAR", "APR", "MAY", "JUNE", "JULY",
-            "AUG", "SEPT", "OCT", "NOV", "DEC" };
+public class ListUserActivity extends AppCompatActivity {
 
-    private ListView monthsListView;
+    private ListView userListView;
     private ArrayAdapter arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
+        setContentView(R.layout.activity_list_user);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -28,20 +28,34 @@ public class ListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Months List", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
 
-        monthsListView = (ListView) findViewById(R.id.months_list);
+        User user = new User();
+        User.add(1, "Maria", "Santos", "wqe");
+        User.add(5, "Antonio", "Rocha", "eqf");
+        User.add(7, "Joao", "Nascimento", "wdqd");
+        User.add(3, "José", "Silva", "edmw");
 
-        // this-The current activity context.
-        // Second param is the resource Id for list layout row item
-        // Third param is input array
-        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, monthsArray);
-        monthsListView.setAdapter(arrayAdapter);
+
+
+        ArrayList<String> ids = new ArrayList<String>();
+
+        for(Map.Entry<Integer, String[]> cursor : user.list().entrySet()){
+            ids.add("ID: "+Integer.toString(cursor.getKey()));
+            System.out.println(ids.toString());
+        }
+
+        userListView = (ListView) findViewById(R.id.user_list);
+
+        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,ids);
+        userListView.setAdapter(arrayAdapter);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
     }
 
 }
