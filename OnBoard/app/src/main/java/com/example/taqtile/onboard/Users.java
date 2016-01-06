@@ -7,6 +7,7 @@ import java.util.HashMap;
 public class Users  {
 
     private static final String TAG = "Método: ";
+
     private static HashMap<Integer,Pessoa> cadastros;
 
 
