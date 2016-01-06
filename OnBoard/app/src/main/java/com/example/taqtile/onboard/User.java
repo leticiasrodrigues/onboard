@@ -66,5 +66,13 @@ public class User {
 
     }
 
+    public String getFirstName (Integer id){
+        return lista.get(id)[0];
+    }
+
+    public String getLasttName (Integer id){
+        return lista.get(id)[1];
+    }
+
 
 }

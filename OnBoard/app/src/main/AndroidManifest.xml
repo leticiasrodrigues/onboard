@@ -45,6 +45,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.taqtile.onboard.MainActivity" />
         </activity>
+        <activity
+            android:name=".UserInformationActivity"
+            android:label="@string/title_activity_user_information"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.taqtile.onboard.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

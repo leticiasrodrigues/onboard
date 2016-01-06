@@ -27,4 +27,9 @@
         android:layout_height="wrap_content"
         android:text="@string/button_users"
         android:onClick="users"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_users_info"
+        android:onClick="users_info"/>
 </LinearLayout>
