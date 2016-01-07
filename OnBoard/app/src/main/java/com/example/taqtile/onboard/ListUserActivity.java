@@ -33,6 +33,7 @@ public class ListUserActivity extends AppCompatActivity {
             }
         });
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         User user = new User();
         User.add(1, "Maria", "Santos", "wqe");
         User.add(5, "Antonio", "Rocha", "eqf");
@@ -53,7 +54,7 @@ public class ListUserActivity extends AppCompatActivity {
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,ids);
         userListView.setAdapter(arrayAdapter);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
 
     }

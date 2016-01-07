@@ -10,22 +10,22 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class CustomListAdapter extends BaseAdapter {
-    private ArrayList<User2> user;
+    private ArrayList<User2> userList;
     private LayoutInflater layoutInflater;
 
-    public CustomListAdapter(Context aContext, ArrayList<User2> user){
-        this.user = user;
+    public CustomListAdapter(Context aContext, ArrayList<User2> userList){
+        this.userList = userList;
         layoutInflater = LayoutInflater.from(aContext);
     }
 
     @Override
     public int getCount() {
-        return user.size();
+        return userList.size();
     }
 
     @Override
-    public Object getItem(int position) {
-        return user.get(position);
+    public User2 getItem(int position) {
+        return userList.get(position);
     }
 
     @Override
@@ -46,9 +46,10 @@ public class CustomListAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.idView.setText("ID: " + user.get(position).getId());
-        holder.firstNameView.setText("First name: " + position+user.get(position).toString());
-        holder.lastNameView.setText("Last name: "+user.get(position).getLast_name());
+
+        holder.idView.setText("ID: " + userList.get(position).getId());
+        holder.firstNameView.setText("First name: " + userList.get(position).getFirstName());
+        holder.lastNameView.setText("Last name: " + userList.get(position).getLastName());
         return convertView;
     }
 

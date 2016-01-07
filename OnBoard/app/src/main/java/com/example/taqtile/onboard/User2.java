@@ -4,8 +4,8 @@ package com.example.taqtile.onboard;
  * Created by taqtile on 1/6/16.
  */
 public class User2 {
-    private static String first_name;
-    private static String last_name;
+    private String first_name;
+    private String last_name;
     private String avatar;
     private Integer count;
     private Integer id;
@@ -22,11 +22,11 @@ public class User2 {
         return id;
     }
 
-    public static String getFirst_name() {
+    public String getFirstName() {
         return first_name;
     }
 
-    public static String getLast_name() {
+    public String getLastName() {
         return last_name;
     }
 
