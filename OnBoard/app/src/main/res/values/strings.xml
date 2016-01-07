@@ -9,4 +9,6 @@
     <string name="button_show">Show</string>
     <string name="button_users">Users</string>
     <string name="title_activity_list_user">ListUserActivity</string>
+    <string name="title_activity_user_information">UserInformationActivity</string>
+    <string name="button_users_info">Info</string>
 </resources>

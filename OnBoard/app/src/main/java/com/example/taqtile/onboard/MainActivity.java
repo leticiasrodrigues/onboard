@@ -73,4 +73,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,ListUserActivity.class);
         startActivity(intent);
     }
+
+    public void users_info(View  view){
+        Intent intent = new Intent(this,UserInformationActivity.class);
+        startActivity(intent);
+    }
 }
