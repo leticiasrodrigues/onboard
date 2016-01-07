@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.taqtile.onboard" >
 
-    <application
+    <uses-permission
+        android:name="android.permission.INTERNET"/>
+
+   <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,6 +20,56 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".DisplayMessageActivity"
+            android:label="@string/title_activity_display_message"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.taqtile.onboard.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ListActivity"
+            android:label="@string/title_activity_list"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.taqtile.onboard.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ListUserActivity"
+            android:label="@string/title_activity_list_user"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.taqtile.onboard.MainActivity" />
+        </activity>
+        <activity
+            android:name=".UserInformationActivity"
+            android:label="@string/title_activity_user_information"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.taqtile.onboard.MainActivity" />
+        </activity>
+        <activity
+            android:name=".UserDetails"
+            android:label="@string/title_activity_user_details"
+            android:parentActivityName=".UserInformationActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.taqtile.onboard.UserInformationActivity" />
+        </activity>
+        <activity
+            android:name=".RequestTest"
+            android:label="@string/title_activity_request_test"
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>
 
