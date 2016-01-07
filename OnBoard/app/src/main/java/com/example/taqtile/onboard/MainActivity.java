@@ -78,4 +78,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,UserInformationActivity.class);
         startActivity(intent);
     }
+
+    public void requestTest(View view){
+        Intent intent = new Intent (this, RequestTest.class);
+        startActivity(intent);
+    }
 }
