@@ -34,6 +34,9 @@ public class UserDetails extends AppCompatActivity {
         details.add("Last Name: "+ message);
         message = intent.getStringExtra(UserInformationActivity.AVATAR);
         details.add("Avatar: "+ message);
+        message = intent.getStringExtra(UserInformationActivity.COUNTER);
+        details.add("Counter: "+ message);
+
 
         detailsListView = (ListView) findViewById(R.id.user_detail);
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, details);

@@ -14,4 +14,6 @@
     <string name="title_activity_user_details">UserDetails</string>
     <string name="button_internet">Http</string>
     <string name="title_activity_request_test">RequestTest</string>
+    <string name="title_activity_http_request">HttpRequestActivity</string>
+    <string name="http_test">Http</string>
 </resources>

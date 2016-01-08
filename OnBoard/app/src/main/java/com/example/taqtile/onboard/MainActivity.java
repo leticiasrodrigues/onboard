@@ -79,8 +79,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void requestTest(View view){
-        Intent intent = new Intent (this, RequestTest.class);
+    public void testHttpRequest(View  view){
+        Intent intent = new Intent(this,HttpRequestActivity.class);
         startActivity(intent);
     }
+
+
+    //public void testHttpRequest
 }

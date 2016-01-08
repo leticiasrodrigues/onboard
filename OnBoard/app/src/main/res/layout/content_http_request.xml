@@ -7,7 +7,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_request_test"
-    tools:context="com.example.taqtile.onboard.RequestTest">
-
+    tools:showIn="@layout/activity_http_request"
+    tools:context="com.example.taqtile.onboard.HttpRequestActivity"
+    android:id="@+id/http_content">
 </RelativeLayout>
+

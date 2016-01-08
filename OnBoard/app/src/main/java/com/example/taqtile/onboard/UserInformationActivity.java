@@ -17,7 +17,10 @@ public class UserInformationActivity extends AppCompatActivity {
     public static String FIRST_NAME = "firstName";
     public static String LAST_NAME = "lastName";
     public static String AVATAR = "avatar";
+    public static String COUNTER = "counter";
     public ArrayList<User2> userList;
+
+    public CustomListAdapter mAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,15 +34,22 @@ public class UserInformationActivity extends AppCompatActivity {
 
         userList = getListData();
         final ListView lv1 = (ListView) findViewById(R.id.user_list_info);
-        final CustomListAdapter adapter = new CustomListAdapter(this, userList);
-        lv1.setAdapter(new CustomListAdapter(this, userList));
+        mAdapter = new CustomListAdapter(this, userList);
+        lv1.setAdapter(mAdapter);
         lv1.setOnItemClickListener(new OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
 
-                User2 o = adapter.getItem(position);
+                User2 o = mAdapter.getItem(position);
+
+                o.setAccess(true);
+                o.addCounter();
+
+                mAdapter.notifyDataSetChanged();
+
                 details(o);
+
 
                 //Toast.makeText(UserInformationActivity.this, "Selected :" + " " + o, Toast.LENGTH_LONG).show();
 
@@ -49,6 +59,11 @@ public class UserInformationActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
     private ArrayList<User2> getListData() {
 
         ArrayList<User2> userList= new ArrayList<User2>();
@@ -56,11 +71,27 @@ public class UserInformationActivity extends AppCompatActivity {
         User2 user1 = new User2(2, "Maria", "Santos", "wqe");
         User2 user3 = new User2(7, "Joao", "Nascimento", "wdqd");
         User2 user4 = new User2(3, "José", "Silva", "edmw");
+        User2 user5 = new User2(5, "Antonio", "Rocha", "eqf");
+        User2 user6 = new User2(2, "Maria", "Santos", "wqe");
+        User2 user7 = new User2(7, "Joao", "Nascimento", "wdqd");
+        User2 user8 = new User2(3, "José", "Silva", "edmw");
+        User2 user9 = new User2(5, "Antonio", "Rocha", "eqf");
+        User2 user10= new User2(2, "Maria", "Santos", "wqe");
+        User2 user11= new User2(7, "Joao", "Nascimento", "wdqd");
+        User2 user12= new User2(3, "José", "Silva", "edmw");
 
         userList.add(user2);
         userList.add(user1);
         userList.add(user4);
         userList.add(user3);
+        userList.add(user5);
+        userList.add(user6);
+        userList.add(user7);
+        userList.add(user8);
+        userList.add(user9);
+        userList.add(user10);
+        userList.add(user11);
+        userList.add(user12);
 
         return userList;
     }
@@ -72,6 +103,7 @@ public class UserInformationActivity extends AppCompatActivity {
         intent.putExtra(FIRST_NAME, user2.getFirstName());
         intent.putExtra(LAST_NAME, user2.getLastName());
         intent.putExtra(AVATAR, user2.getAvatar());
+        intent.putExtra(COUNTER, Integer.toString(user2.getCounter()));
 
         startActivity(intent);
     }
