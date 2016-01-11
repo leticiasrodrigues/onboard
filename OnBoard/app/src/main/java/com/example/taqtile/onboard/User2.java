@@ -14,8 +14,8 @@ public class User2 {
     public User2(Integer id, String first_name, String last_name, String avatar){
         this.avatar = avatar;
         this.id = id;
-        this.last_name = last_name;
-        this.first_name = first_name;
+        this.last_name =  last_name.substring(0,1).toUpperCase() + last_name.substring(1);
+        this.first_name = first_name.substring(0,1).toUpperCase() + first_name.substring(1);
         this.access = false;
         this.counter = 0;
     }

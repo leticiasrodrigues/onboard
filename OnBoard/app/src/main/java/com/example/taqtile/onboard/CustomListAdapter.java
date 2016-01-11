@@ -19,6 +19,8 @@ public class CustomListAdapter extends BaseAdapter {
         layoutInflater = LayoutInflater.from(aContext);
     }
 
+
+
     @Override
     public int getCount() {
         return userList.size();
@@ -51,10 +53,10 @@ public class CustomListAdapter extends BaseAdapter {
         holder.idView.setText("ID: " + userList.get(position).getId());
 
         if (userList.get(position).getAccess()){
-            holder.idView.setTypeface(null, Typeface.BOLD_ITALIC);
+            holder.idView.setTypeface(null, Typeface.NORMAL);
         }
         else{
-            holder.idView.setTypeface(null, Typeface.NORMAL);
+            holder.idView.setTypeface(null, Typeface.BOLD_ITALIC);
         }
 
 

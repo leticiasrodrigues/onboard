@@ -10,10 +10,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String JSON_URL = "http://reqres.in/api/users?page=4";
     public final static String EXTRA_MESSAGE = "com.example.taqtile.onboard.MESSAGE";
+    public final static String USER = "user";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,15 +84,54 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void usersInfo(View  view){
+        sendRequest();
+//        Intent intent = new Intent(this,UserInformationActivity.class);
+//        startActivity(intent);
+    }
+
+    public void jsonVolley(View  view){
+        Intent intent = new Intent(this,JsonVolleyActivity.class);
+        startActivity(intent);
+    }
+
+    private void showJSON(String json){
+//        ParseJSON pj = new ParseJSON(json);
+//        pj.parseJSON();
+//
+//        ArrayList<User2> userList = new ArrayList<User2>();
+//
+//        for(int i=0; i<pj.size;i++){
+//            userList.add(new User2(i,pj.names[i],pj.ids[i],pj.emails[i]));
+//        }
+
         Intent intent = new Intent(this,UserInformationActivity.class);
+        intent.putExtra(USER,json);
         startActivity(intent);
+
+//        CustomList cl = new CustomList(this, ParseJSON.ids,ParseJSON.names,ParseJSON.emails);
+//        listView.setAdapter(cl);
     }
 
-    public void testHttpRequest(View  view){
-        Intent intent = new Intent(this,HttpRequestActivity.class);
-        startActivity(intent);
+    private void sendRequest(){
+
+        StringRequest stringRequest = new StringRequest(JSON_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        showJSON(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 
 
-    //public void testHttpRequest
 }

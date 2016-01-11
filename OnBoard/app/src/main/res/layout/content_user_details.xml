@@ -10,10 +10,30 @@
     tools:showIn="@layout/activity_user_details"
     tools:context="com.example.taqtile.onboard.UserDetails">
 
+
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/picture"
+        android:layout_width="80dp"
+        android:layout_height="80dp">
+    </com.android.volley.toolbox.NetworkImageView>
+
+
     <ListView
         android:id="@+id/user_detail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/picture"
+        android:layout_toEndOf="@+id/picture">
     </ListView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
+        android:onClick="back"
+        android:layout_below="@+id/user_detail"
+        android:layout_alignRight="@+id/user_detail"
+        android:layout_alignEnd="@+id/user_detail" />
 
 </RelativeLayout>

@@ -7,8 +7,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_http_request"
-    tools:context="com.example.taqtile.onboard.HttpRequestActivity"
-    android:id="@+id/http_content">
-</RelativeLayout>
+    tools:showIn="@layout/activity_show_user_details"
+    tools:context="com.example.taqtile.onboard.ShowUserDetails">
 
+    <ListView
+        android:id="@+id/user_detail2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
+
+</RelativeLayout>

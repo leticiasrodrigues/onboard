@@ -16,4 +16,8 @@
     <string name="title_activity_request_test">RequestTest</string>
     <string name="title_activity_http_request">HttpRequestActivity</string>
     <string name="http_test">Http</string>
+    <string name="title_activity_test_http_request">testHttpRequest</string>
+    <string name="title_activity_show_user_details">ShowUserDetails</string>
+    <string name="title_activity_json_volley">JsonVolleyActivity</string>
+    <string name="back">Back</string>
 </resources>
