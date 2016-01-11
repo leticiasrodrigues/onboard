@@ -5,20 +5,27 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
+
+import com.android.volley.RequestQueue;
+
+public class JsonVolleyActivity extends AppCompatActivity {
+
+    TextView output;
+    //String loginURL="https://public-api.wordpress.com/rest/v1/sites/www.hackpundit.com/posts?number=5&page=1&type=post&fields=id,title,URL";
+    String loginURL = "http://reqres.in/api/users?page=1";
+    String data = "";
 
 
-
-import java.io.IOException;
-
-public class RequestTest extends AppCompatActivity {
+    RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request_test);
 
+
+        setContentView(R.layout.activity_json_volley);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -31,27 +38,6 @@ public class RequestTest extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        makeGetRequest();
-    }
-    private void makeGetRequest() {
-
-        HttpClient client = new DefaultHttpClient();
-        HttpGet request = new HttpGet("http://www.example.com");
-        // replace with your url
-
-        HttpResponse response;
-        try {
-            response = client.execute(request);
-
-            Log.d("Response of GET request", response.toString());
-        } catch (ClientProtocolException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
 
     }
-
 }

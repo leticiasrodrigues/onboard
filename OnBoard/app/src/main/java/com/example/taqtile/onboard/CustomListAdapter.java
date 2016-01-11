@@ -1,6 +1,7 @@
 package com.example.taqtile.onboard;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ public class CustomListAdapter extends BaseAdapter {
         this.userList = userList;
         layoutInflater = LayoutInflater.from(aContext);
     }
+
+
 
     @Override
     public int getCount() {
@@ -48,6 +51,15 @@ public class CustomListAdapter extends BaseAdapter {
 
 
         holder.idView.setText("ID: " + userList.get(position).getId());
+
+        if (userList.get(position).getAccess()){
+            holder.idView.setTypeface(null, Typeface.NORMAL);
+        }
+        else{
+            holder.idView.setTypeface(null, Typeface.BOLD_ITALIC);
+        }
+
+
         holder.firstNameView.setText("First name: " + userList.get(position).getFirstName());
         holder.lastNameView.setText("Last name: " + userList.get(position).getLastName());
         return convertView;

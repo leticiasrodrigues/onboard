@@ -2,10 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.taqtile.onboard" >
 
-    <uses-permission
-        android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
-   <application
+    <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -67,9 +66,23 @@
                 android:value="com.example.taqtile.onboard.UserInformationActivity" />
         </activity>
         <activity
-            android:name=".RequestTest"
-            android:label="@string/title_activity_request_test"
+            android:name=".testHttpRequest"
+            android:label="@string/title_activity_test_http_request"
             android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".ShowUserDetails"
+            android:label="@string/title_activity_show_user_details"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".JsonVolleyActivity"
+            android:label="@string/title_activity_json_volley"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.taqtile.onboard.MainActivity" />
         </activity>
     </application>
 

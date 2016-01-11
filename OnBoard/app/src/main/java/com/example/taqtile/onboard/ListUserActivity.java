@@ -45,7 +45,7 @@ public class ListUserActivity extends AppCompatActivity {
         ArrayList<String> ids = new ArrayList<String>();
 
         for(Map.Entry<Integer, String[]> cursor : user.list().entrySet()){
-            ids.add("ID: "+Integer.toString(cursor.getKey()));
+            ids.add("Nome: "+cursor.getValue()[0]);
             System.out.println(ids.toString());
         }
 
