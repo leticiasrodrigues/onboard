@@ -84,6 +84,21 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.taqtile.onboard.MainActivity" />
         </activity>
+        <activity
+            android:name=".NewUserActivity"
+            android:label="@string/title_activity_new_user"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".InsertedActivity"
+            android:label="@string/title_activity_inserted"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".ChangeActivity"
+            android:label="@string/title_activity_change"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

@@ -20,4 +20,8 @@
     <string name="title_activity_show_user_details">ShowUserDetails</string>
     <string name="title_activity_json_volley">JsonVolleyActivity</string>
     <string name="back">Back</string>
+    <string name="title_activity_new_user">NewUserActivity</string>
+    <string name="add">New</string>
+    <string name="title_activity_inserted">InsertedActivity</string>
+    <string name="title_activity_change">ChangeActivity</string>
 </resources>

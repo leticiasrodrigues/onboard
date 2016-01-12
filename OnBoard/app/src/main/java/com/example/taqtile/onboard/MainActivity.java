@@ -79,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void users(View  view){
-        Intent intent = new Intent(this,ListUserActivity.class);
+        //Intent intent = new Intent(this,ListUserActivity.class);
+        Intent intent = new Intent(this,InsertedActivity.class);
         startActivity(intent);
     }
 
@@ -131,6 +132,11 @@ public class MainActivity extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+
+    public void addUser(View  view){
+        Intent intent = new Intent(this,NewUserActivity.class);
+        startActivity(intent);
     }
 
 
