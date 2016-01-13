@@ -35,10 +35,12 @@ public class NewUserActivity extends AppCompatActivity {
                 BancoController crud = new BancoController(getBaseContext());
                 EditText first = (EditText) findViewById(R.id.editText);
                 EditText last = (EditText) findViewById((R.id.editText2));
+                EditText avatar = (EditText) findViewById((R.id.editText3));
                 String firstString = first.getText().toString();
                 String lastString = last.getText().toString();
+                String avatarString = avatar.getText().toString();
                 String result;
-                result = crud.insereDado(firstString, lastString);
+                result = crud.insereDado(firstString, lastString, avatarString);
                 Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
             }
         });

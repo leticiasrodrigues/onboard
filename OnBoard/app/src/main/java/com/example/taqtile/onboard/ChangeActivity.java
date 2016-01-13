@@ -31,6 +31,7 @@ public class ChangeActivity extends AppCompatActivity {
 
         final EditText first;
         final EditText last;
+        final EditText avatar;
         Button alterar;
         Button deletar;
         Cursor cursor;
@@ -42,16 +43,18 @@ public class ChangeActivity extends AppCompatActivity {
         crud = new BancoController(getBaseContext());
         first = (EditText)findViewById(R.id.editText4);
         last = (EditText)findViewById(R.id.editText5);
+        avatar = (EditText)findViewById(R.id.editText6);
 
         alterar = (Button)findViewById(R.id.button2);
 
         cursor = crud.carregaDadoById(Integer.parseInt(codigo));
         first.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.FIRSTNAME)));
         last.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.LASTNAME)));
+        avatar.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.AVATAR)));
 
         alterar.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
-                crud.alteraRegistro(Integer.parseInt(codigo),first.getText().toString(),last.getText().toString());
+                crud.alteraRegistro(Integer.parseInt(codigo),first.getText().toString(),last.getText().toString(),avatar.getText().toString());
                 Intent intent = new Intent(ChangeActivity.this,InsertedActivity.class);
                 startActivity(intent);
                 finish();

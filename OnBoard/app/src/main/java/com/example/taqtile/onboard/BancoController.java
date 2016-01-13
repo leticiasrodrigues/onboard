@@ -16,13 +16,15 @@ public class BancoController {
         banco = new CriaBanco(context);
     }
 
-    public String insereDado(String firstName, String lastName) {
+    public String insereDado(String firstName, String lastName, String avatar) {
         ContentValues valores;
         long resultado;
         db = banco.getWritableDatabase();
         valores = new ContentValues();
         valores.put(CriaBanco.FIRSTNAME, firstName);
         valores.put(CriaBanco.LASTNAME, lastName);
+        valores.put(CriaBanco.AVATAR, avatar);
+        //valores.put(CriaBanco.ACCESSES, 0);
         resultado = db.insert(CriaBanco.TABELA,null,valores);
         db.close();
 
@@ -35,7 +37,7 @@ public class BancoController {
 
     public Cursor carregaDados() {
         Cursor cursor;
-        String[] campos = {banco.INTERNALID, banco.FIRSTNAME};
+        String[] campos = {banco.ID, banco.FIRSTNAME, banco.LASTNAME, banco.AVATAR};
         db = banco.getReadableDatabase();
         cursor = db.query(banco.TABELA, campos, null, null, null, null, null, null);
 
@@ -49,8 +51,8 @@ public class BancoController {
 
     public Cursor carregaDadoById(int id){
         Cursor cursor;
-        String[] campos = {banco.INTERNALID,banco.FIRSTNAME,banco.LASTNAME};
-        String where = CriaBanco.INTERNALID + "=" + id;
+        String[] campos = {banco.ID,banco.FIRSTNAME,banco.LASTNAME, banco.AVATAR};
+        String where = CriaBanco.ID + "=" + id;
         db = banco.getReadableDatabase();
         cursor = db.query(CriaBanco.TABELA,campos,where, null, null, null, null, null);
 
@@ -62,25 +64,26 @@ public class BancoController {
         return cursor;
     }
 
-    public void alteraRegistro(int id, String first, String last){
+    public void alteraRegistro(int id, String first, String last, String avatar){
         ContentValues valores;
 
         String where; db = banco.getWritableDatabase();
 
-        where = CriaBanco.INTERNALID + "=" + id;
+        where = CriaBanco.ID + "=" + id;
 
         valores = new ContentValues();
         valores.put(CriaBanco.FIRSTNAME, first);
         valores.put(CriaBanco.LASTNAME, last);
+        valores.put(CriaBanco.AVATAR, avatar);
+        //valores.put(CriaBanco.ACCESSES, 1);
         db.update(CriaBanco.TABELA,valores,where,null);
         db.close();
     }
 
     public void deletaRegistro(int id) {
-        String where = CriaBanco.INTERNALID + "=" + id;
+        String where = CriaBanco.ID + "=" + id;
         db = banco.getReadableDatabase();
         db.delete(CriaBanco.TABELA, where, null);
         db.close();
     }
-
 }
