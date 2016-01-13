@@ -24,4 +24,9 @@
     <string name="add">New</string>
     <string name="title_activity_inserted">InsertedActivity</string>
     <string name="title_activity_change">ChangeActivity</string>
+    <string name="title_activity_user_information_final">UserInformationFinalActivity</string>
+    <string name="complete">Final</string>
+    <string name="title_activity_user_details2">UserDetails2</string>
+    <string name="novo">New</string>
+    <string name="title_activity_new_user2">NewUser2</string>
 </resources>

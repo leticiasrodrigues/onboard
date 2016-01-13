@@ -2,12 +2,14 @@ package com.example.taqtile.onboard;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
 import java.util.ArrayList;
 
@@ -22,8 +24,10 @@ public class UserInformationActivity extends AppCompatActivity {
     public static String COUNTER = "counter";
     public ArrayList<User2> userList;
     public Context context = this;
+    public SimpleCursorAdapter adaptador;
 
     public CustomListAdapter mAdapter;
+    //public CustomListAdapterFinal mAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,12 +38,14 @@ public class UserInformationActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.USER);
+         Intent intent = getIntent();
+         String message = intent.getStringExtra(MainActivity.USER);
 
-        userList = getListData(message);
+         //userList = getListData(message);
+        userList = getUserList();
 
-        final ListView lv1 = (ListView) findViewById(R.id.user_list_info);
+
+        ListView lv1 = (ListView) findViewById(R.id.user_list_info);
         mAdapter = new CustomListAdapter(context, userList);
         lv1.setAdapter(mAdapter);
         lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -57,11 +63,13 @@ public class UserInformationActivity extends AppCompatActivity {
                 details(o);
 
 
+
+
                 //Toast.makeText(UserInformationActivity.this, "Selected :" + " " + o, Toast.LENGTH_LONG).show();
 
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
 
     }
@@ -131,8 +139,40 @@ public class UserInformationActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void details(Cursor cursor){
+        Intent intent = new Intent(this,UserDetails.class);
+
+        BancoController crud = new BancoController(getBaseContext());
+
+        intent.putExtra(ID, crud.getId(cursor));
+        intent.putExtra(FIRST_NAME, crud.getFirstName(cursor));
+        intent.putExtra(LAST_NAME, crud.getLastName(cursor));
+        intent.putExtra(AVATAR, crud.getAvatar(cursor));
+        //intent.putExtra(COUNTER, Integer.toString(user2.getCounter()));
+        intent.putExtra(COUNTER, crud.getAcesso(cursor));
+
+        startActivity(intent);
+
+    }
+
     protected Context getContext(){
         return this;
+    }
+
+    public ArrayList<User2> getUserList(){
+
+        ArrayList<User2> user = new ArrayList<>();
+
+        BancoController crud = new BancoController(getBaseContext());
+        int size = crud.getCount();
+        for (int i = 0; i<size; i++){
+            Cursor cursor = crud.carregaDadoById(i);
+            user.add(new User2(i, cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.FIRSTNAME)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.LASTNAME)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.AVATAR))));
+        }
+
+        return user;
     }
 
 }

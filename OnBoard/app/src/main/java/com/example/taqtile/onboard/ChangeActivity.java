@@ -45,13 +45,16 @@ public class ChangeActivity extends AppCompatActivity {
 
         alterar = (Button)findViewById(R.id.button2);
 
+        //informacoes
         cursor = crud.carregaDadoById(Integer.parseInt(codigo));
+
+
         first.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.FIRSTNAME)));
         last.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.LASTNAME)));
 
         alterar.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
-                crud.alteraRegistro(Integer.parseInt(codigo),first.getText().toString(),last.getText().toString());
+                crud.alteraRegistro(Integer.parseInt(codigo),first.getText().toString(),last.getText().toString(), "mwkwef");
                 Intent intent = new Intent(ChangeActivity.this,InsertedActivity.class);
                 startActivity(intent);
                 finish();

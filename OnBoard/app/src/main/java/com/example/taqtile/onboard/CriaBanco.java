@@ -9,14 +9,14 @@ public class CriaBanco extends SQLiteOpenHelper {
         super(context, BANCO,null,VERSAO);
     }
 
-    public static final String BANCO = "banco.db";
+    public static final String BANCO = "bancox.db";
     public static final String TABELA = "users";
     public static final String INTERNALID = "_id";
     //public static final String ID = "id";
     public static final String FIRSTNAME = "firstName";
     public static final String LASTNAME = "lastName";
-    //public static final String AVATAR = "avatar";
-    //public static final String ACCESSES = "accesses";
+    public static final String AVATAR = "avatar";
+    public static final String ACCESSES = "accesses";
     public static final int VERSAO = 1;
 
     @Override
@@ -25,9 +25,9 @@ public class CriaBanco extends SQLiteOpenHelper {
                 INTERNALID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 //ID + " INTEGER, " +
                 FIRSTNAME + " TEXT, " +
-                LASTNAME + " TEXT" +
-                //AVATAR + " TEXT, " +
-                //ACCESSES + " INTEGER
+                LASTNAME + " TEXT, " +
+                AVATAR + " TEXT, " +
+                ACCESSES + " INTEGER"+
                  ")";
         db.execSQL(sql);
 

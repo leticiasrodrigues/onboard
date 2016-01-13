@@ -31,6 +31,7 @@ public class CustomListAdapter extends BaseAdapter {
         return userList.get(position);
     }
 
+
     @Override
     public long getItemId(int position) {
         return position;
@@ -52,6 +53,7 @@ public class CustomListAdapter extends BaseAdapter {
 
         holder.idView.setText("ID: " + userList.get(position).getId());
 
+
         if (userList.get(position).getAccess()){
             holder.idView.setTypeface(null, Typeface.NORMAL);
         }
@@ -62,6 +64,7 @@ public class CustomListAdapter extends BaseAdapter {
 
         holder.firstNameView.setText("First name: " + userList.get(position).getFirstName());
         holder.lastNameView.setText("Last name: " + userList.get(position).getLastName());
+
         return convertView;
     }
 

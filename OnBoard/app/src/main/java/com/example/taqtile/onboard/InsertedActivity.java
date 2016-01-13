@@ -14,6 +14,7 @@ import android.widget.SimpleCursorAdapter;
 
 public class InsertedActivity extends AppCompatActivity {
 
+    public SimpleCursorAdapter adaptador;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,14 +33,15 @@ public class InsertedActivity extends AppCompatActivity {
 
         ListView lista;
 
-
         BancoController crud = new BancoController(getBaseContext());
         final Cursor cursor = crud.carregaDados();
         String[] nomeCampos = new String[]{CriaBanco.INTERNALID, CriaBanco.FIRSTNAME};
         int[] idViews = new int[]{R.id.userId, R.id.firstName};
-        SimpleCursorAdapter adaptador = new SimpleCursorAdapter(getBaseContext(), R.layout.user_layout, cursor, nomeCampos, idViews, 0);
+        adaptador = new SimpleCursorAdapter(getBaseContext(), R.layout.user_layout, cursor, nomeCampos, idViews, 0);
         lista = (ListView) findViewById(R.id.listView);
         lista.setAdapter(adaptador);
+
+        adaptador.notifyDataSetChanged();
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -47,13 +49,19 @@ public class InsertedActivity extends AppCompatActivity {
                 String codigo;
                 cursor.moveToPosition(position);
                 codigo = cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.INTERNALID));
-                Intent intent = new Intent(InsertedActivity.this, ChangeActivity.class);
+                Intent intent = new Intent(InsertedActivity.this, UserDetails2.class);
+                //Intent intent = new Intent(InsertedActivity.this, UserDetails2.class);
                 intent.putExtra("codigo", codigo);
                 startActivity(intent);
                 finish();
             }
         });
 
+    }
+
+    public void novo (View view){
+        Intent intent = new Intent(this, NewUser2.class);
+        startActivity(intent);
     }
 
 }

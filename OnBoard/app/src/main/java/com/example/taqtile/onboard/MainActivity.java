@@ -86,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void usersInfo(View  view){
         sendRequest();
-//        Intent intent = new Intent(this,UserInformationActivity.class);
-//        startActivity(intent);
+        //Intent intent = new Intent(this,UserInformationActivity.class);
+        //startActivity(intent);
     }
 
     public void jsonVolley(View  view){
@@ -136,6 +136,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void addUser(View  view){
         Intent intent = new Intent(this,NewUserActivity.class);
+        //Intent intent = new Intent(this,NewUser2.class);
+        startActivity(intent);
+    }
+
+    public void complete(View  view){
+        Intent intent = new Intent(this,UserInformationFinalActivity.class);
         startActivity(intent);
     }
 

@@ -99,6 +99,21 @@
             android:label="@string/title_activity_change"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".UserInformationFinalActivity"
+            android:label="@string/title_activity_user_information_final"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".UserDetails2"
+            android:label="@string/title_activity_user_details2"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".NewUser2"
+            android:label="@string/title_activity_new_user2"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>
