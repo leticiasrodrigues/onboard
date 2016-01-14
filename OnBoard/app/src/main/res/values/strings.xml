@@ -24,4 +24,6 @@
     <string name="add">New</string>
     <string name="title_activity_inserted">InsertedActivity</string>
     <string name="title_activity_change">ChangeActivity</string>
+    <string name="title_activity_info">InfoActivity</string>
+    <string name="update">Update</string>
 </resources>

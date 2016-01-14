@@ -44,6 +44,15 @@ public class NewUserActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
             }
         });
+
+        Button botao1 = (Button) findViewById(R.id.button1);
+        botao1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+                finish();
+            }
+        });
     }
 
 }

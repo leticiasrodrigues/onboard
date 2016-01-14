@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:columnCount="4"
+    android:columnCount="3"
     android:rowCount="1" >
 
     <TextView android:id="@+id/userId"
@@ -15,25 +15,23 @@
     <TextView android:id="@+id/firstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
         android:text="FIRST NAME"
-        android:layout_gravity="left" />
+        android:layout_gravity="left"
+        android:layout_below="@+id/userId"
+        android:layout_alignLeft="@+id/userId"
+        android:layout_alignStart="@+id/userId" />
 
     <TextView android:id="@+id/lastName"
         android:text="LAST NAME"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="left" />
+        android:layout_gravity="left"
+        android:layout_marginRight="54dp"
+        android:layout_marginEnd="54dp"
+        android:layout_alignTop="@+id/firstName"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true" />
 
-    <TextView android:id="@+id/avatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:text="AVATAR"
-        android:layout_gravity="left" />
 
-</GridLayout>
+</RelativeLayout>

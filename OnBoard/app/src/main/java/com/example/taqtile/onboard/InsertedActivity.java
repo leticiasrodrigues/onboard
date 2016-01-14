@@ -20,6 +20,7 @@ public class InsertedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inserted);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -35,8 +36,8 @@ public class InsertedActivity extends AppCompatActivity {
 
         BancoController crud = new BancoController(getBaseContext());
         final Cursor cursor = crud.carregaDados();
-        String[] nomeCampos = new String[]{CriaBanco.ID, CriaBanco.FIRSTNAME, CriaBanco.LASTNAME, CriaBanco.AVATAR};
-        int[] idViews = new int[]{R.id.userId, R.id.firstName, R.id.lastName, R.id.avatar};
+        String[] nomeCampos = new String[]{CriaBanco.ID, CriaBanco.FIRSTNAME, CriaBanco.LASTNAME};
+        int[] idViews = new int[]{R.id.userId, R.id.firstName, R.id.lastName};
         SimpleCursorAdapter adaptador = new SimpleCursorAdapter(getBaseContext(), R.layout.user_layout, cursor, nomeCampos, idViews, 0);
         lista = (ListView) findViewById(R.id.listView);
         lista.setAdapter(adaptador);
@@ -47,10 +48,10 @@ public class InsertedActivity extends AppCompatActivity {
                 String codigo;
                 cursor.moveToPosition(position);
                 codigo = cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.ID));
-                Intent intent = new Intent(InsertedActivity.this, ChangeActivity.class);
+                Intent intent = new Intent(InsertedActivity.this, InfoActivity.class);
                 intent.putExtra("codigo", codigo);
                 startActivity(intent);
-                finish();
+                //finish();
             }
         });
 

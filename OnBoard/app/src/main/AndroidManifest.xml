@@ -92,13 +92,26 @@
         <activity
             android:name=".InsertedActivity"
             android:label="@string/title_activity_inserted"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.taqtile.onboard.MainActivity" />
         </activity>
         <activity
             android:name=".ChangeActivity"
             android:label="@string/title_activity_change"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".InfoActivity"
+            android:label="@string/title_activity_info"
+            android:parentActivityName=".InsertedActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.taqtile.onboard.InsertedActivity" />
     </application>
 
 </manifest>

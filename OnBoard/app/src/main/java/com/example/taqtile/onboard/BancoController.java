@@ -67,7 +67,9 @@ public class BancoController {
     public void alteraRegistro(int id, String first, String last, String avatar){
         ContentValues valores;
 
-        String where; db = banco.getWritableDatabase();
+        String where;
+
+        db = banco.getWritableDatabase();
 
         where = CriaBanco.ID + "=" + id;
 
@@ -85,5 +87,24 @@ public class BancoController {
         db = banco.getReadableDatabase();
         db.delete(CriaBanco.TABELA, where, null);
         db.close();
+    }
+
+    public boolean alreadyExist (String avatar){
+        Cursor cursor;
+        Boolean e = false;
+        String[] campos = {banco.AVATAR};
+        String where = CriaBanco.AVATAR + "=" + avatar;
+        db = banco.getReadableDatabase();
+        cursor = db.query(CriaBanco.TABELA,campos,where, null, null, null, null, null);
+
+        cursor.getString(0).toString();
+
+        if(cursor!=null){
+            cursor.moveToFirst();
+            e = true;
+        }
+
+        db.close();
+        return e;
     }
 }

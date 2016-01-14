@@ -139,5 +139,49 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void update(View view) {
+
+
+        StringRequest stringRequest = new StringRequest(JSON_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        BancoController crud = new BancoController(getBaseContext());
+
+                        ParseJSON pj = new ParseJSON(response);
+                        pj.parseJSON();
+
+                        String[] names = ParseJSON.names;
+                        String[] lastNames = ParseJSON.lastNames;
+                        String[] emails = ParseJSON.emails;
+
+                        for (int i = 0; i < ParseJSON.size; i++) {
+
+                            //Boolean e = crud.alreadyExist(emails[i]);
+
+                            //if (!e) {
+                                String x = crud.insereDado(names[i], lastNames[i], emails[i]);
+                            //}
+                        }
+
+                        Intent intent = new Intent(MainActivity.this, InsertedActivity.class);
+                        startActivity(intent);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+
+
+
+    }
 
 }
